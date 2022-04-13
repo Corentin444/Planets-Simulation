@@ -1,11 +1,9 @@
+from random import random
+
 import pygame
 
-from planet import Planet
+from star import Star
 import config as cfg
-
-# Ajouter options
-# Changer nom variables
-# Class Planet
 
 pygame.init()
 
@@ -17,22 +15,11 @@ def main():
     run = True
     clock = pygame.time.Clock()
 
-    sun = Planet(0, 0, 30, cfg.SUN_COLOR, 1.98892 * 10 ** 30)
-    sun.sun = True
+    galaxy = []
 
-    earth = Planet(-1 * Planet.AU, 0, 16, cfg.EARTH_COLOR, 5.9742 * 10 ** 24)
-    earth.y_vel = 29.783 * 1000
-
-    mars = Planet(-1.524 * Planet.AU, 0, 12, cfg.MARS_COLOR, 6.39 * 10 ** 23)
-    mars.y_vel = 24.077 * 1000
-
-    mercury = Planet(0.387 * Planet.AU, 0, 8, cfg.MERCURY_COLOR, 3.30 * 10 ** 23)
-    mercury.y_vel = 47.4 * 1000
-
-    venus = Planet(0.723 * Planet.AU, 0, 14, cfg.VENUS_COLOR, 4.8685 * 10 ** 24)
-    venus.y_vel = -35.02 * 1000
-
-    planets = [sun, earth, mars, mercury, venus]
+    for i in range(10):
+        star = Star((random() * 400)-200, (random()*2)-1, (random() * 400)-200, (random()*2)-1, cfg.WHITE)
+        galaxy.append(star)
 
     while run:
         clock.tick(60)
@@ -42,9 +29,9 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
-        for planet in planets:
-            planet.update_position(planets)
-            planet.draw(WIN)
+        for star in galaxy:
+            star.update_position(galaxy)
+            star.draw(WIN)
 
         pygame.display.update()
 
