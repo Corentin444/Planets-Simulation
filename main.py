@@ -17,8 +17,10 @@ def main():
 
     galaxy = []
 
-    for i in range(10):
-        star = Star((random() * 400)-200, (random()*2)-1, (random() * 400)-200, (random()*2)-1, cfg.WHITE)
+    for i in range(cfg.STARS_NUMBER):
+        star = Star((random() * cfg.GALAXY_SIZE) - (cfg.GALAXY_SIZE / 2), random() - 0.5,
+                    (random() * cfg.GALAXY_SIZE) - (cfg.GALAXY_SIZE / 2), random() - 0.5,
+                    (255, 255, 255))
         galaxy.append(star)
 
     while run:
