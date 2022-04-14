@@ -21,7 +21,7 @@ class Star:
         x = self.x_position + cfg.WIDTH / 2
         y = self.y_position + cfg.HEIGHT / 2
 
-        pygame.draw.circle(win, self.color, (x, y), 3)
+        pygame.draw.circle(win, self.color, (x, y), 1)
         # win.set_at((self.x_position, self.y_position), self.color)
 
     def update_position(self, galaxy):
